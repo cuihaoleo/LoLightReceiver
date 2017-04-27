@@ -1,5 +1,5 @@
-//-----------------------------------¡¾Í·ÎÄ¼ş°üº¬²¿·Ö¡¿---------------------------------------
-//		ÃèÊö£º°üº¬³ÌĞòËùÒÀÀµµÄÍ·ÎÄ¼ş
+//-----------------------------------ã€å¤´æ–‡ä»¶åŒ…å«éƒ¨åˆ†ã€‘---------------------------------------
+//		æè¿°ï¼šåŒ…å«ç¨‹åºæ‰€ä¾èµ–çš„å¤´æ–‡ä»¶
 //---------------------------------------------------------------------------------------------- 
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -11,14 +11,14 @@
 #include<fstream>
 
 
-//-----------------------------------¡¾ÃüÃû¿Õ¼äÉùÃ÷²¿·Ö¡¿---------------------------------------
-//		ÃèÊö£º°üº¬³ÌĞòËùÊ¹ÓÃµÄÃüÃû¿Õ¼ä
+//-----------------------------------ã€å‘½åç©ºé—´å£°æ˜éƒ¨åˆ†ã€‘---------------------------------------
+//		æè¿°ï¼šåŒ…å«ç¨‹åºæ‰€ä½¿ç”¨çš„å‘½åç©ºé—´
 //----------------------------------------------------------------------------------------------- 
 using namespace cv;
 using namespace std;
 #define pi 3.1415926
-//-----------------------------------¡¾main( )º¯Êı¡¿--------------------------------------------
-//		ÃèÊö£º¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úº¯Êı£¬ÎÒÃÇµÄ³ÌĞò´ÓÕâÀï¿ªÊ¼
+//-----------------------------------ã€main( )å‡½æ•°ã€‘--------------------------------------------
+//		æè¿°ï¼šæ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£å‡½æ•°ï¼Œæˆ‘ä»¬çš„ç¨‹åºä»è¿™é‡Œå¼€å§‹
 //-----------------------------------------------------------------------------------------------
 struct PT
 {
@@ -44,8 +44,8 @@ Point Pleft_top;
 Point Pleft_but;
 
 float kx, ky;
-int vertical[1000];              //ÊúÖ±
-int horizonal[1000];             //Ë®Æ½
+int vertical[1000];              //ç«–ç›´
+int horizonal[1000];             //æ°´å¹³
 
 Point2f CrossPoint(const LINE *line1, const LINE *line2)
 {
@@ -158,18 +158,18 @@ void order_point(Point p[5][1000])
 	}
 
 
-	cout << endl;
+	cerr << endl;
 	fout << left_top.x << " " << left_top.y << "\n";
 	fout << right_top.x << " " << right_top.y << "\n";
 	fout << right_but.x << " " << right_but.y << "\n";
 	fout << left_but.x << " " << left_but.y << "\n";
-	cout << "right_but" << right_but.x << "    " << right_but.y << endl;
-	cout << endl;
-	cout << "right_top" << right_top.x << "    " << right_top.y << endl;
-	cout << endl;
-	cout << "left_but" << left_but.x << "    " << left_but.y << endl;
-	cout << endl;
-	cout << "left_top" << left_top.x << "    " << left_top.y << endl;
+	cerr << "right_but" << right_but.x << "    " << right_but.y << endl;
+	cerr << endl;
+	cerr << "right_top" << right_top.x << "    " << right_top.y << endl;
+	cerr << endl;
+	cerr << "left_but" << left_but.x << "    " << left_but.y << endl;
+	cerr << endl;
+	cerr << "left_top" << left_top.x << "    " << left_top.y << endl;
 	Pright_top.x = (int)(right_top.x*kx); Pright_top.y = (int)(right_top.y*ky);
 	Pright_but.x = (int)(right_but.x*kx); Pright_but.y = (int)(right_but.y*ky);
 	Pleft_top.x = (int)(left_top.x*kx);  Pleft_top.y = (int)(left_top.y*ky);
@@ -178,19 +178,24 @@ void order_point(Point p[5][1000])
 	fout << Pright_top.x << " " << Pright_top.y << "\n";
 	fout << Pright_but.x << " " << Pright_but.y << "\n";
 	fout << Pleft_but.x << " " << Pleft_but.y << "\n";
-	cout << endl;
-	cout << "Ô­Í¼ right_but" << Pright_but.x << "    " << Pright_but.y << endl;
-	cout << endl;
-	cout << "Ô­Í¼ right_top" << Pright_top.x << "    " << Pright_top.y << endl;
-	cout << endl;
-	cout << "Ô­Í¼ left_but" << Pleft_but.x << "    " << Pleft_but.y << endl;
-	cout << endl;
-	cout << "Ô­Í¼ left_top" << Pleft_top.x << "    " << Pleft_top.y << endl;
+	cerr << endl;
+	cerr << "åŸå›¾ right_but" << Pright_but.x << "    " << Pright_but.y << endl;
+	cerr << endl;
+	cerr << "åŸå›¾ right_top" << Pright_top.x << "    " << Pright_top.y << endl;
+	cerr << endl;
+	cerr << "åŸå›¾ left_but" << Pleft_but.x << "    " << Pleft_but.y << endl;
+	cerr << endl;
+	cerr << "åŸå›¾ left_top" << Pleft_top.x << "    " << Pleft_top.y << endl;
+
+	cout << Pleft_top.x << " " << Pleft_top.y << endl;
+	cout << Pright_top.x << " " << Pright_top.y << endl;
+	cout << Pright_but.x << " " << Pright_but.y << endl;
+	cout << Pleft_but.x << " " << Pleft_but.y << endl;
 }
 
 int main(int argc, char *argv[])
 {
-	//¡¾1¡¿ÔØÈëÔ­Ê¼Í¼ºÍMat±äÁ¿¶¨Òå   
+	//ã€1ã€‘è½½å…¥åŸå§‹å›¾å’ŒMatå˜é‡å®šä¹‰   
 	Mat midImage, dstImage;
 	Mat GrayImage, BinaryImage;
 	Mat srcImage = imread(argv[1]);
@@ -200,17 +205,17 @@ int main(int argc, char *argv[])
 	srcImage.copyTo(dst);
 	kx = (dst.cols *1.0) / (resize_width*1.0);
 	ky = (dst.rows*1.0) / (resize_height*1.0);
-	cout << "³¤¶È£º" << dst.cols << " " << kx << "  " << "          ¿í¶È£º " << dst.rows << "  " << ky << endl;
+	cerr << "é•¿åº¦ï¼š" << dst.cols << " " << kx << "  " << "          å®½åº¦ï¼š " << dst.rows << "  " << ky << endl;
 	cv::resize(srcImage, srcImage, cv::Size(resize_width, resize_height), (0, 0), (0, 0), cv::INTER_LINEAR);
 
-	// ×ªÎª»Ò¶ÈÍ¼
+	// è½¬ä¸ºç°åº¦å›¾
 	cvtColor(srcImage, GrayImage, CV_BGR2GRAY);
 
-	// ´´½¨¶şÖµÍ¼
+	// åˆ›å»ºäºŒå€¼å›¾
 	threshold(GrayImage, BinaryImage, 32, 255, CV_THRESH_BINARY);
 
-	//¡¾2¡¿½øĞĞ±ßÔµ¼ì²âºÍ×ª»¯Îª»Ò¶ÈÍ¼
-	Canny(BinaryImage, midImage, 100, 300, 3);//½øĞĞÒ»´Ëcanny±ßÔµ¼ì²â
+	//ã€2ã€‘è¿›è¡Œè¾¹ç¼˜æ£€æµ‹å’Œè½¬åŒ–ä¸ºç°åº¦å›¾
+	Canny(BinaryImage, midImage, 100, 300, 3);//è¿›è¡Œä¸€æ­¤cannyè¾¹ç¼˜æ£€æµ‹
 	Mat temp;
 	midImage.copyTo(temp);
 
@@ -229,16 +234,16 @@ int main(int argc, char *argv[])
 	addWeighted(midImage, 0.5, temp, 0.5, 0, midImage);
 
 
-	cvtColor(midImage, dstImage, CV_GRAY2BGR);//×ª»¯±ßÔµ¼ì²âºóµÄÍ¼Îª»Ò¶ÈÍ¼
+	cvtColor(midImage, dstImage, CV_GRAY2BGR);//è½¬åŒ–è¾¹ç¼˜æ£€æµ‹åçš„å›¾ä¸ºç°åº¦å›¾
 
 
 	LINE pt1[10000];
 
-	//¡¾3¡¿½øĞĞ»ô·òÏß±ä»»
-	vector<Vec4i> lines;//¶¨ÒåÒ»¸öÊ¸Á¿½á¹¹linesÓÃÓÚ´æ·ÅµÃµ½µÄÏß¶ÎÊ¸Á¿¼¯ºÏ
+	//ã€3ã€‘è¿›è¡Œéœå¤«çº¿å˜æ¢
+	vector<Vec4i> lines;//å®šä¹‰ä¸€ä¸ªçŸ¢é‡ç»“æ„linesç”¨äºå­˜æ”¾å¾—åˆ°çš„çº¿æ®µçŸ¢é‡é›†åˆ
 	HoughLinesP(midImage, lines, 1, CV_PI / 180, 80, 200, 10);
 
-	//¡¾4¡¿ÒÀ´ÎÔÚÍ¼ÖĞ»æÖÆ³öÃ¿ÌõÏß¶Î
+	//ã€4ã€‘ä¾æ¬¡åœ¨å›¾ä¸­ç»˜åˆ¶å‡ºæ¯æ¡çº¿æ®µ
 	int e = 0;
 	int v = 0;
 	for (size_t i = 0; i < lines.size(); i++)
@@ -314,8 +319,6 @@ int main(int argc, char *argv[])
 
 	Mat transform = getPerspectiveTransform(corners, corners_trans);
 	warpPerspective(dst, dst, transform, Size(961, 541));
-
-	waitKey(0);
 
 	return 0;
 }

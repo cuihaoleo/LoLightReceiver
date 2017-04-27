@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mButtonVideo;
     private Button mButtonOpenFile;
+    private Button mButtonDetect;
     private Button mButtonApply;
     private Button mButtonSave;
     private EditText mEditCols;
@@ -95,6 +96,28 @@ public class MainActivity extends AppCompatActivity {
             Intent mediaChooser = new Intent(Intent.ACTION_GET_CONTENT);
             mediaChooser.setType("video/*");
             startActivityForResult(mediaChooser, ACTION_OPEN_VIDEO_FILE);
+        }
+    };
+
+    final Button.OnClickListener mButtonDetectOnClickListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ScreenDetector detector = new ScreenDetector(v.getContext());
+            mPoints = detector.detect(mExampleImage);
+
+            opencv_core.Mat dis = mExampleImage.clone();
+            for (opencv_core.Point2f p: mPoints) {
+                if (p != null) {
+                    Float xx = p.x() * dis.cols();
+                    Float yy = p.y() * dis.rows();
+                    opencv_imgproc.circle(
+                            dis, new opencv_core.Point(xx.intValue(), yy.intValue()), 6,
+                            new opencv_core.Scalar(0, 0, 255, 0), -1, opencv_core.LINE_8, 0);
+                }
+            }
+
+            mPhotoView.setImageBitmap(mDisplayBitmap = Mat2Bitmap(dis));
+            mAttacher.update();
         }
     };
 
@@ -570,6 +593,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonVideo = (Button)findViewById(R.id.buttonVideo);
         mButtonSave = (Button)findViewById(R.id.buttonSave);
         mButtonOpenFile = (Button)findViewById(R.id.buttonOpenFile);
+        mButtonDetect = (Button)findViewById(R.id.buttonDetect);
         mButtonApply = (Button)findViewById(R.id.buttonApply);
         mPhotoView = (PhotoView)findViewById(R.id.photoView);
         mEditCols = (EditText)findViewById(R.id.editCols);
@@ -580,6 +604,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonVideo.setOnClickListener(mButtonVideoOnClickListener);
         mButtonOpenFile.setOnClickListener(mButtonOpenFileOnClickListener);
         mButtonSave.setOnClickListener(mButtonSaveOnClickListener);
+        mButtonDetect.setOnClickListener(mButtonDetectOnClickListener);
         mButtonApply.setOnClickListener(mButtonApplyOnClickListener);
 
         mAttacher = new PhotoViewAttacher(mPhotoView);
