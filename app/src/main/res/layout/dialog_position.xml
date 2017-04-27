@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editStartTime"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editDuration"
+        android:layout_below="@+id/editStartTime"
+        android:layout_alignStart="@+id/editStartTime"
+        android:layout_alignEnd="@+id/editStartTime"
+        android:layout_alignLeft="@+id/editStartTime"
+        android:layout_alignRight="@+id/editStartTime" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Start time (ms)"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView2"
+        android:gravity="center_vertical|right"
+        android:paddingRight="8dp"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Duration (ms)"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/editStartTime"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/editDuration"
+        android:layout_alignEnd="@+id/textView"
+        android:gravity="center_vertical|right"
+        android:paddingRight="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/textView" />
+
+</RelativeLayout>
