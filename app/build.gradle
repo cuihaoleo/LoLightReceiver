@@ -10,6 +10,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+        externalNativeBuild {
+            ndkBuild {
+                targets "screen_detector"
+            }
+        }
     }
     buildTypes {
         release {
@@ -25,6 +33,11 @@ android {
         pickFirst  'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.xml'
         pickFirst  'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.properties'
         pickFirst  'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.xml'
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path '../screen_detector/Android.mk'
+        }
     }
 }
 
